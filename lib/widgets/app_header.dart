@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../theme/app_theme.dart';
 import '../utils/responsive.dart';
 import '../data/club_data.dart';
+import 'app_logo.dart';
 
 class AppHeader extends StatefulWidget {
   const AppHeader({
@@ -99,24 +100,7 @@ class _Logo extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Center(
-              child: Text(
-                ClubData.logoInitials,
-                style: TextStyle(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ),
+          const AppLogo(size: 44),
           if (context.showDesktopNav) ...[
             const SizedBox(width: 12),
             Flexible(

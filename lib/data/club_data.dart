@@ -1,45 +1,42 @@
-class Player {
-  const Player({required this.name, required this.position});
+class TechnicalAdvisor {
+  const TechnicalAdvisor({
+    required this.name,
+    required this.role,
+    required this.details,
+  });
 
   final String name;
-  final String position;
+  final String role;
+  final List<String> details;
 }
 
-class VideoItem {
-  const VideoItem({
+class FocusArea {
+  const FocusArea({
     required this.title,
-    required this.duration,
+    required this.description,
   });
 
   final String title;
-  final String duration;
-}
-
-class NewsItem {
-  const NewsItem({
-    required this.caption,
-    required this.tag,
-  });
-
-  final String caption;
-  final String tag;
+  final String description;
 }
 
 class ClubData {
   static const clubName = 'ANFIELD International Sports Academy';
   static const shortName = 'ANFIELD';
   static const logoInitials = 'AN';
+  static const logoAsset = 'assets/images/anfield_logo.png';
   static const tagline = 'Develop - Compete - Excel.';
   static const motto = 'BUILDING CHAMPIONS, INSPIRING FUTURES';
   static const hashtag = '#ANFIELD #InternationalSportsAcademy';
 
-  static const address = '''
-ANFIELD International Sports Academy, No.2, EMS Corporation Stadium,
-SK Temple Road, Kozhikode – 673004''';
+  static const address = 'OLD Ideal School Ground Doha , Qatar';
 
-  static const corporateAddress = '''
-ANFIELD International Sports Academy, No.66, Anfield Towers,
-Arcot Road, Kodambakkam, Chennai - 600024''';
+  static const crNumber = '244218';
+
+  static const contactNumbers = [
+    '+974 77770720',
+    '+974 77740721',
+  ];
 
   static const openHours = 'Mon – Sat: 11 am – 7 pm | Sunday: CLOSED';
 
@@ -81,77 +78,81 @@ Arcot Road, Kodambakkam, Chennai - 600024''';
     'Create scouting platforms for young talents',
   ];
 
-  static const players = [
-    Player(name: 'Shibin Raj', position: 'Goalkeeper'),
-    Player(name: 'Rakshit', position: 'Goalkeeper'),
-    Player(name: 'Athul', position: 'Defender'),
-    Player(name: 'Nidhin', position: 'Defender'),
-    Player(name: 'Rishad', position: 'Midfielder'),
-    Player(name: 'Rahul Raju', position: 'Midfielder'),
-    Player(name: 'Moses', position: 'Forward'),
-    Player(name: 'Samuel', position: 'Forward'),
-    Player(name: 'Shighil', position: 'Midfielder'),
-    Player(name: 'Soyal', position: 'Defender'),
-    Player(name: 'Harpreet', position: 'Defender'),
-    Player(name: 'Gursimrat', position: 'Defender'),
+  static const missionStatement =
+      'Our mission is to identify, nurture, and elevate young football talent by '
+      'providing world-class training and character building education. We are '
+      'dedicated to cultivating discipline, team work, & excellence, offering '
+      'every aspiring athlete a clear progression from grassroots programs to the '
+      'professional stage with AISA powered by Gokulam Kerala FC';
+
+  static const focusAreas = [
+    FocusArea(
+      title: 'Pathway Focus',
+      description:
+          'To serve as a premier developmental platform, offering aspiring young '
+          'athletes expert coaching and a clear, direct pathway to professional '
+          'football with Gokulam Kerala FC',
+    ),
+    FocusArea(
+      title: 'Holistic Focus',
+      description:
+          'To provide elite, age-specific football training that nurtures technical '
+          'talent while placing an equal emphasis on academic focus, character '
+          'building, and life skills',
+    ),
+    FocusArea(
+      title: 'Grassroots Focus',
+      description:
+          'To foster a deep passion for football at the grassroots level by '
+          'delivering accessible, high-quality coaching and infrastructure to youth '
+          'across our communities',
+    ),
+    FocusArea(
+      title: 'Values Focus',
+      description:
+          'To instill the core values of discipline, teamwork, and resilience in '
+          'young athletes through a structured, professional, & competitive football '
+          'curriculum.',
+    ),
+    FocusArea(
+      title: 'Technical Focus',
+      description:
+          'To deliver world-class technical & tactical football education, '
+          'empowering every player with the modern skills needed to reach their '
+          'highest potential on the pitch',
+    ),
+    FocusArea(
+      title: 'Health & Mentality Focus',
+      description:
+          'To promote physical fitness, healthy lifestyles, and a winning mentality '
+          'among youth through comprehensive sports education and consistent '
+          'competitive play',
+    ),
   ];
 
-  static const videos = [
-    VideoItem(
-      title: 'ANFIELD Academy Theme — Season Opener Highlights',
-      duration: '1:09',
+  static const technicalAdvisors = [
+    TechnicalAdvisor(
+      name: 'Ranjan Chowdhury',
+      role: 'Technical Advisor',
+      details: [
+        'Technical Director — Gokulam Kerala FC (2024–2025)',
+        'Technical Director — RKM Mission Chathisgarh (2022–2023)',
+        'Project Sports Head — Alard University, Pune (2021–2022)',
+        'Project Head — East Bengal Club, Kolkata (2015–2020)',
+        'Technical Director — Pune Football Academy (2010–2015)',
+        'Head Coach / TD — Tata Football Academy (1989–2010)',
+      ],
     ),
-    VideoItem(
-      title:
-          'Inside ANFIELD: Training Camp Journey & Friendly Match Highlights',
-      duration: '5:40',
-    ),
-    VideoItem(
-      title: 'Proud to unveil our official kit partner for the 2024-25 season',
-      duration: '0:22',
-    ),
-    VideoItem(
-      title: 'ANFIELD Lucky Draw Winner Revealed!',
-      duration: '0:40',
-    ),
-    VideoItem(
-      title: 'International Youth Tournament | ANFIELD Academy Highlights',
-      duration: '1:37',
-    ),
-    VideoItem(
-      title: 'ANFIELD Academy Season Promo 2023-24',
-      duration: '0:35',
-    ),
-    VideoItem(
-      title: 'INSIDE ANFIELD 003 — Training Session Highlights',
-      duration: '3:42',
-    ),
-  ];
-
-  static const news = [
-    NewsItem(
-      caption: 'Sports deserves a celebration—and here it is! 🎉⚽',
-      tag: 'Events',
-    ),
-    NewsItem(
-      caption: 'Can You Guess What\'s Coming? 👀 #ANFIELD #SportsAcademy',
-      tag: 'Teaser',
-    ),
-    NewsItem(
-      caption: 'Get Ready! ⚽ New season registration opening soon... #ANFIELD',
-      tag: 'Registration',
-    ),
-    NewsItem(
-      caption: 'Different programs. Different stories. #ANFIELD #Academy',
-      tag: 'Highlights',
-    ),
-    NewsItem(
-      caption: 'Ahead of the new season, an inspiring meeting with the squad',
-      tag: 'Team',
-    ),
-    NewsItem(
-      caption: 'A tournament forever etched in our memories #ANFIELD',
-      tag: 'Memories',
+    TechnicalAdvisor(
+      name: 'Wahid Sali',
+      role: 'Technical Director',
+      details: [
+        'Former professional footballer with over 10 years playing experience in '
+        'the league and national competitions. Transitioned into coaching in 2016, '
+        'now an experienced coach with proven success at District, state, and club '
+        'levels. Passionate about player development, modern football methodologies, '
+        '& building competitive teams.',
+      ],
     ),
   ];
 
@@ -165,13 +166,12 @@ Arcot Road, Kodambakkam, Chennai - 600024''';
   ];
 
   static const quickLinks = [
-    'About us',
-    'Our Facilities',
+    'Home',
+    'Why Choose AISA',
+    'Our Mission & Vision',
+    'Technical Advisory',
+    'Sports Programs',
     'Gallery',
-    'Our Academy',
-    'Team',
-    'Youth Programs',
-    'ANFIELD Sports Programs',
-    'ANFIELD Fan Club',
+    'Contact',
   ];
 }

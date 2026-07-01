@@ -75,9 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SliverToBoxAdapter(
             key: _sectionKeys['news'],
-            child: const NewsSection(),
+            child: const MissionVisionSection(),
           ),
-          const SliverToBoxAdapter(child: PlaylistSection()),
           SliverToBoxAdapter(
             key: _sectionKeys['team'],
             child: const SquadSection(),

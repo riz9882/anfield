@@ -56,8 +56,8 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
-class NewsSection extends StatelessWidget {
-  const NewsSection({super.key});
+class MissionVisionSection extends StatelessWidget {
+  const MissionVisionSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,23 +67,36 @@ class NewsSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SectionTitle(
-            title: 'Latest Updates',
-            subtitle: 'Stay connected with ANFIELD Academy',
+            title: 'Our Mission and Vision',
+            subtitle: 'AISA powered by Gokulam Kerala FC',
+          ),
+          const SizedBox(height: 24),
+          Text(
+            ClubData.missionStatement,
+            style: TextStyle(
+              fontSize: context.isMobile ? 15 : 16,
+              height: 1.8,
+              color: Colors.grey.shade700,
+            ),
           ),
           const SizedBox(height: 32),
           LayoutBuilder(
             builder: (context, constraints) {
-              final cols = context.gridColumns;
-              final itemWidth = (constraints.maxWidth - (cols - 1) * 16) / cols;
+              final cols = context.isMobile ? 1 : 3;
+              final itemWidth =
+                  (constraints.maxWidth - (cols - 1) * 16) / cols;
               return Wrap(
                 spacing: 16,
                 runSpacing: 16,
-                children: ClubData.news.asMap().entries.map((entry) {
+                children: ClubData.focusAreas.asMap().entries.map((entry) {
                   final index = entry.key;
                   final item = entry.value;
                   return SizedBox(
                     width: cols == 1 ? double.infinity : itemWidth,
-                    child: _NewsCard(item: item).heroEntrance(
+                    child: _FocusTile(
+                      item: item,
+                      index: index,
+                    ).heroEntrance(
                       delay: Duration(milliseconds: 80 * index),
                       slideY: 0.08,
                       duration: const Duration(milliseconds: 550),
@@ -99,10 +112,20 @@ class NewsSection extends StatelessWidget {
   }
 }
 
-class _NewsCard extends StatelessWidget {
-  const _NewsCard({required this.item});
+class _FocusTile extends StatelessWidget {
+  const _FocusTile({required this.item, required this.index});
 
-  final NewsItem item;
+  final FocusArea item;
+  final int index;
+
+  static const _icons = [
+    Icons.route_outlined,
+    Icons.school_outlined,
+    Icons.groups_outlined,
+    Icons.verified_outlined,
+    Icons.sports_soccer_outlined,
+    Icons.fitness_center_outlined,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -112,66 +135,42 @@ class _NewsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         side: BorderSide(color: Colors.grey.shade200),
       ),
-      child: InkWell(
-        onTap: () {},
-        borderRadius: BorderRadius.circular(12),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 140,
+              width: 44,
+              height: 44,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(12),
-                ),
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary,
-                    AppColors.accent,
-                  ],
-                ),
+                color: AppColors.primary.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(10),
               ),
-              child: Center(
-                child: Icon(
-                  Icons.sports_soccer,
-                  size: 48,
-                  color: Colors.white.withValues(alpha: 0.3),
-                ),
+              child: Icon(
+                _icons[index % _icons.length],
+                color: AppColors.primary,
+                size: 22,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.white.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      item.tag,
-                      style: const TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    item.caption,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      height: 1.4,
-                    ),
-                  ),
-                ],
+            const SizedBox(height: 16),
+            Text(
+              item.title,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
+                color: AppColors.primary,
+                height: 1.3,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              item.description,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                height: 1.6,
+                color: Colors.grey.shade700,
               ),
             ),
           ],

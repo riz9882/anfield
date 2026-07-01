@@ -16,12 +16,13 @@ class PageContent {
 
 class PageContentData {
   static const _homeSections = <String, String>{
-    'About us': 'about',
+    'Home': 'home',
+    'Why Choose AISA': 'about',
+    'Our Mission & Vision': 'news',
+    'Technical Advisory': 'team',
+    'Sports Programs': 'schools',
     'Gallery': 'gallery',
-    'Our Academy': 'about',
-    'Team': 'team',
-    'Youth Programs': 'schools',
-    'ANFIELD Sports Programs': 'schools',
+    'Contact': 'contact',
   };
 
   static String? homeSectionFor(String label) => _homeSections[label];
@@ -98,9 +99,10 @@ class PageContentData {
       ],
       bulletPoints: [
         'Email: info@anfieldacademy.com',
-        'Phone: +91 98765 43210',
-        'Office: EMS Corporation Stadium, Kozhikode',
-        ClubData.openHours,
+        ClubData.contactNumbers.first,
+        ClubData.contactNumbers.last,
+        'CR Number: ${ClubData.crNumber}',
+        ClubData.address,
       ],
     ),
     'Privacy Policy': PageContent(
